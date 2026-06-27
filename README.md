@@ -5,7 +5,7 @@ A Claude Skill that rewrites legal, regulatory, or contractual text in plain lan
 
 ## Why this exists
 
-Most "explain this in plain English" prompts produce something readable but unverifiable — there's no way to know whether a condition, deadline, or exception silently disappeared in the rewrite. This skill is built to make that failure mode hard to hit, through a deliberate two-stage verification process rather than a single pass from dense text to plain text.
+Most "explain this in plain English" prompts produce something readable but unverifiable (there's no way to know whether a condition, deadline, or exception silently disappeared in the rewrite). This skill is built to make that failure mode hard to hit, through a deliberate two-stage verification process rather than a single pass from dense text to plain text.
 
 ## How it works
 
@@ -52,4 +52,4 @@ SKILL.md   → the full skill definition (Anthropic Skills format)
 
 ## A note on scope
 
-This skill produces translations, not advice — it's deliberately built to never recommend whether to accept, sign, or act on a given term. That determination stays with a human, and the disclaimer step exists specifically to keep any non-lawyer reader from mistaking a plain-language rewrite for legal guidance.
+This skill produces translations, not advice. It's deliberately built to never recommend whether to accept, sign, or act on a given term. That determination stays with a human, and the disclaimer step exists specifically to keep any non-lawyer reader from mistaking a plain-language rewrite for legal guidance.
