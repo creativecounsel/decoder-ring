@@ -1,7 +1,7 @@
 # Decoder Ring
 ### A legalese translator skill
 
-A Claude Skill that rewrites legal, regulatory, or contractual text in plain language for a specified audience — built around one core design goal: a simplification that quietly drops or softens a real obligation is worse than no translation at all.
+A Claude Skill that rewrites legal, regulatory, or contractual text in plain language for a specified audience and built around one core design goal: a simplification that quietly drops or softens a real obligation is worse than no translation at all.
 
 ## Why this exists
 
@@ -10,12 +10,12 @@ Most "explain this in plain English" prompts produce something readable but unve
 ## How it works
 
 ### 1. Identify source and audience
-Before translating, the skill confirms what kind of text it's working with (contract clause, statute, internal policy, etc.) and who the output is for. Different text types need different fidelity standards — a contractual deadline needs near-perfect precision; a policy summary has more room to compress. If the audience isn't specified, the skill asks rather than guessing.
+Before translating, the skill confirms what kind of text it's working with (contract clause, statute, internal policy, etc.) and who the output is for. Different text types need different fidelity standards: a contractual deadline needs near-perfect precision; a policy summary has more room to compress. If the audience isn't specified, the skill asks rather than guessing.
 
 ### 2. Extract a skeleton before rewriting (silent step)
-Before producing any plain-language text, the skill privately lists out everything load-bearing in the source: parties, defined terms, obligations, rights, conditions/triggers, exceptions, consequences, deadlines, and exact numbers. This skeleton becomes the ground truth that the translation gets checked against later — the same "extract first, verify second" pattern used in the daily-planner skill's completion detection, applied here to textual fidelity instead of task status.
+Before producing any plain-language text, the skill privately lists out everything load-bearing in the source: parties, defined terms, obligations, rights, conditions/triggers, exceptions, consequences, deadlines, and exact numbers. This skeleton becomes the ground truth that the translation gets checked against later, the same "extract first, verify second" pattern used in the daily-planner skill's completion detection, applied here to textual fidelity instead of task status.
 
-**For statutes, regulations, or text not supplied directly by the user**, the skill pulls from a single authoritative source (official code sites, Cornell LII, eCFR) rather than assembling a provision from scattered search snippets — search results often mix different effective dates without making that obvious, so cross-checking sources and noting the "as of" date matters here.
+**For statutes, regulations, or text not supplied directly by the user**, the skill pulls from a single authoritative source (official code sites, Cornell LII, eCFR) rather than assembling a provision from scattered search snippets; search results often mix different effective dates without making that obvious, so cross-checking sources and noting the "as of" date matters here.
 
 ### 3. Translate to the target audience
 A preset table maps six audience types (non-lawyer colleague, customer FAQ, executive summary, engineering team, general public, negotiation counterparty) to register, structure, and what's safe to compress versus what must stay.
